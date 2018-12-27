@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CadastroChamadoComponent } from './cadastro-chamado/cadastro-chamado.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadastroChamadoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
