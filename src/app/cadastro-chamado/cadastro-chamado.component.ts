@@ -7,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroChamadoComponent implements OnInit {
 
-  chamado: any = {
+  chamado: any = [{
     lab: '001',
     descricao: 'Teste'
-  }
+  }, {
+    lab: '002',
+    descricao: 'Teste'
+  }, {
+    lab: '003',
+    descricao: 'Teste'
+  }]
 
   constructor() { }
 

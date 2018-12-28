@@ -54,10 +54,13 @@
             </thead>
             <tbody>
 
-              <tr>
+              <tr *ngFor="let item of chamado" >
                 <th scope="row">  </th>
-                <td>Descrição</td>
+                <td> Descrição: {{item.descricao}}</td>
                 <td>
+                  <div>
+
+                  </div>
                   <button class="btn btn-outline-danger btnFull">
                       <i class="fas fa-trash"></i>
                   </button>
