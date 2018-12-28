@@ -1,39 +1,85 @@
-<p>
-  cadastro-chamado works!
-</p>
-
 <div class="container">
 
   <form>
+
+    <div class="form-row">
+
+      <div class="col">
+        <input type="text" class="form-control btnFull" placeholder="Nome">
+      </div>
+
+      <div class="col">
+        <input type="text" class="form-control btnFull" placeholder="Sobrenome">
+      </div>
+
+    </div>
+
     <div class="form-row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Nome">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Sobrenome">
+        <input type="email" class="form-control btnFull" placeholder="E-mail">
       </div>
     </div>
-    <div class="form-row" style="margin-top: 8px;">
-      <div class="col">
-        <input type="email" class="form-control" placeholder="E-mail">
-      </div>
-    </div>
+
     <div class="form-group">
-      <label for="inputState">Laboratorio</label>
       <select id="inputState" class="form-control">
-        <option selected>Escolha...</option>
+        <option selected>Laboratorio...</option>
         <option>Lab 001</option>
         <option>Lab 002</option>
         <option>Lab 003</option>
       </select>
     </div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Descrição</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+    <div class="input-group form-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Descrição</span>
       </div>
+      <textarea class="form-control" aria-label="With textarea" rows="3"></textarea>
+    </div>
+
     <div>
-      <button type="submit" class="btn btn-outline-primary">Add chamado</button>
-      <button type="submit" class="btn btn-outline-success">Enviar</button>
+      <button type="submit" class="btn btn-outline-primary btnFull">
+        <i class="fas fa-plus-square"></i>
+        Add chamado
+      </button>
+    </div>
+
+    <div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <div class="row">
+
+              <div class="col-sm-2">
+                <th scope="col">Laboratorio</th>
+              </div>
+              <div class="col-sm-8">
+                <th scope="col">Descrição</th>
+              </div>
+
+            </div>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <th scope="row">Lab</th>
+            <td>Descrição</td>
+            <td>
+              <button class="btn btn-outline-danger btnFull">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-outline-success btnFull">
+        <i class="fas fa-envelope"></i>
+        Enviar
+      </button>
     </div>
   </form>
 </div>
