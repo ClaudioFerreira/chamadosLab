@@ -1,50 +1,78 @@
 <div class="container">
+  <div class="row">
 
-  <form>
+    <div class="col-sm-6">
 
-    <div class="form-row">
+      <form>
+        <div class="form-row">
 
-      <div class="col">
-        <input type="text" class="form-control btnFull" placeholder="Nome">
+          <div class="col">
+            <input type="text" class="form-control btnFull" placeholder="Nome" (input)="nome = $event.target.value" />
+          </div>
+
+          <div class="col">
+            <input type="email" class="form-control btnFull" placeholder="E-mail" (input)="nome = $event.target.value" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <select id="inputState" class="form-control">
+            <option selected>Laboratorio...</option>
+            <option>Lab 001</option>
+            <option>Lab 002</option>
+            <option>Lab 003</option>
+          </select>
+        </div>
+
+        <div class="input-group form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Descrição</span>
+          </div>
+          <textarea class="form-control" aria-label="With textarea" rows="3"></textarea>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-outline-primary btnFull">
+            <i class="fas fa-plus-square"></i>
+            Add ocorrencia
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- MUDAR: REMOVER VERSÃO EM FORMATO DE TABELA E TRABALHAR COM DIV LINHA E COLUNHAS -->
+    <div class="col-sm-6">
+
+      <div class="row">
+        <div class="col-sm-2">
+          <h5>ID</h5>
+        </div>
+        <div class="col-sm-8">
+          <h5>OCORRENCIA</h5>
+        </div>
+        <div class="col-sm-2">
+          <h5>REMOVE</h5>
+        </div>
       </div>
 
-      <div class="col">
-        <input type="text" class="form-control btnFull" placeholder="Sobrenome">
+      <div class="row" *ngFor="let ocorrencia of ocorrencia">
+        <div class="col-sm-2">
+          <h5> {{ ocorrencia.id }} </h5>
+        </div>
+        <div class="col-sm-8">
+          <h5> {{ ocorrencia.descricao }} </h5>
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-outline-danger btnFull">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
       </div>
-      
-    </div>
 
-    <div class="form-row">
-      <div class="col">
-        <input type="email" class="form-control btnFull" placeholder="E-mail">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <select id="inputState" class="form-control">
-        <option selected>Laboratorio...</option>
-        <option>Lab 001</option>
-        <option>Lab 002</option>
-        <option>Lab 003</option>
-      </select>
-    </div>
-
-    <div class="input-group form-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">Descrição</span>
-      </div>
-      <textarea class="form-control" aria-label="With textarea" rows="3"></textarea>
-    </div>
-
-    <div>
-      <button type="submit" class="btn btn-outline-primary btnFull">
-        <i class="fas fa-plus-square"></i>
-        Add chamado
-      </button>
-    </div>
-
-    <div>
-        <table class="table table-hover">
+      <form>
+        <div>
+          <table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">Laboratorio</th>
@@ -54,28 +82,30 @@
             </thead>
             <tbody>
 
-              <tr *ngFor="let item of chamado" >
-                <th scope="row">  </th>
-                <td> Descrição: {{item.descricao}}</td>
+              <tr *ngFor="let item of ocorrencia">
+                <th scope="row"> ID: {{ item.id }} </th>
+                <td> Descrição: {{ item.descricao }}</td>
                 <td>
                   <div>
 
                   </div>
                   <button class="btn btn-outline-danger btnFull">
-                      <i class="fas fa-trash"></i>
+                    <i class="fas fa-trash"></i>
                   </button>
                 </td>
               </tr>
 
             </tbody>
           </table>
-    </div>
+        </div>
 
-    <div>
-      <button type="submit" class="btn btn-outline-success btnFull">
-        <i class="fas fa-envelope"></i>
-        Enviar
-      </button>
+        <div>
+          <button type="submit" class="btn btn-outline-success btnFull">
+            <i class="fas fa-envelope"></i>
+            Enviar chamado
+          </button>
+        </div>
+      </form>
+
     </div>
-  </form>
-</div>
+  </div>
