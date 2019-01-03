@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-chamado',
@@ -7,28 +8,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroChamadoComponent implements OnInit {
 
-  provessor: any = {
-    nome: 'Joao',
-    email: 'joao@email.com'
-  };
+  @Input()
+  formChamado: FormGroup;
+  formOcorrencia: FormGroup;
 
-  ocorrencia: any = [{
-    id: 1,
-    lab: '001',
-    descricao: 'Teste 1'
-  }, {
-    id: 2,
-    lab: '002',
-    descricao: 'Teste 2'
-  }, {
-    id: 3,
-    lab: '003',
-    descricao: 'Teste 3'
-  }]
+  createForm() {
+    this.formChamado = this.formBuilder.group({
+      id: [""],
+      nome: [""],
+      email: [""],
+      ocorrencia: [[]],
+    })
 
-  constructor() { }
+    this.formOcorrencia = this.formBuilder.group({
+      id: [""],
+      lab: [""],
+      data: [""],
+      descricao: [""],
+    })
+  }
+
+  ok() {
+    console.log("ok")
+  }
+
+
+  addOcorrencia() {
+
+    this.formChamado.value.ocorrencia.push(
+      {
+        id: 10,
+        lab: this.formOcorrencia.value.lab,
+        data: this.formOcorrencia.value.data,
+        descricao: this.formOcorrencia.value.descricao
+      }
+    )
+    console.log(this.formChamado.value.ocorrencia);
+    this.formOcorrencia.reset();
+    console.log("Ocorrecia add");
+  }
+
+  constructor(
+    private formBuilder: FormBuilder //Variavel formulario
+  ) { }
 
   ngOnInit() {
+    this.createForm();
   }
 
 }
