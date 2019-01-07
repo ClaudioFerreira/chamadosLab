@@ -45,26 +45,32 @@ export class CadastroChamadoComponent implements OnInit {
         descricao: this.formOcorrencia.value.descricao
       }
     )
-    // this.formChamado.value.ocorrencia.push(
-    //   {
-    //     id: 10,
-    //     lab: this.formOcorrencia.value.lab,
-    //     data: this.formOcorrencia.value.data,
-    //     descricao: this.formOcorrencia.value.descricao
-    //   }
-    // )
-    // console.log(this.formChamado.value.ocorrencia);
+
     console.log(this.ocorrecias);
     this.formOcorrencia.reset();
     console.log("Ocorrecia add");
   }
 
-  dellOcorrencia(oc){
+  dellOcorrencia(oc) {
     const index: number = this.ocorrecias.indexOf(oc);
     if (index !== -1) {
-      this.ocorrecias.descricao.splice(index, 1);
+      this.ocorrecias.splice(index, 1);
     }
     console.log("ocorrencia deletada")
+  }
+
+  enviarChamado() {
+    this.formChamado.value.push(
+      {
+        id: null,
+        nome: this.formChamado.value.nome,
+        email: this.formChamado.value.email,
+        ocorrencia: this.ocorrecias,
+      }
+    )
+    console.log(this.formChamado);
+    console.log("Chamado enviado");
+
   }
 
   constructor(
