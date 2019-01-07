@@ -9,7 +9,12 @@ import { stringify } from 'querystring';
 })
 export class CadastroChamadoComponent implements OnInit {
 
-  ocorrecias: any = [{}]
+  ocorrecias: any = [{
+    id: null,
+    lab: null,
+    data: null,
+    descricao: null,
+  }]
 
   @Input()
   formChamado: FormGroup;
@@ -54,13 +59,19 @@ export class CadastroChamadoComponent implements OnInit {
     console.log("Ocorrecia add");
   }
 
+  dellOcorrencia(oc){
+    const index: number = this.ocorrecias.indexOf(oc);
+    if (index !== -1) {
+      this.ocorrecias.descricao.splice(index, 1);
+    }
+    console.log("ocorrencia deletada")
+  }
+
   constructor(
     private formBuilder: FormBuilder //Variavel formulario
   ) { }
 
   ngOnInit() {
     this.createForm();
-    //this.formChamado.value.ocorrencia = [{id:'',lab:'101',data:'10/12/2015',descricao:'teste'}]
-
   }
 }

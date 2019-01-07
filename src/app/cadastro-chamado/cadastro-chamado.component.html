@@ -45,31 +45,6 @@
       </div>
 
       <div class="col-md-6">
-        <!-- <div class="row">          
-          <div class="col-sm-2">
-            <h5>ID</h5>
-          </div>
-          <div class="col-sm-8">
-            <h5>OCORRENCIA</h5>
-          </div>
-          <div class="col-sm-2">
-            <h5>REMOVE</h5>
-          </div>
-        </div>
-
-        <div *ngFor="let item of formOcorrencia.descricao">
-          <div class="col-sm-2">
-            <h5> {{ item.id }} </h5>
-          </div>
-          <div class="col-sm-8">
-            <label> {{ item.descricao }} </label>
-          </div>
-          <div class="col-sm-2">
-            <button class="btn btn-outline-danger btnFull">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        </div> -->
 
         <ul class="list-group">
                     
@@ -87,18 +62,13 @@
             <li *ngFor="let item of ocorrecias" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
                 {{ item.descricao }}
               <span class="badge">
-                <button class="btn btn-outline-danger btnFull">
+                <button class="btn btn-outline-danger btnFull" (click)="dellOcorrencia()" >
                   <i class="fas fa-trash"></i>
                 </button>
               </span>
             </li>
 
         </ul>
-
-        <button type="submit" class="btn btn-outline-success btnFull">
-          <i class="fas fa-envelope"></i>
-          Enviar chamado
-        </button>
 
       </div>
     </div>
