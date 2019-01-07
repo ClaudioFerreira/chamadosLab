@@ -9,10 +9,7 @@ import { stringify } from 'querystring';
 })
 export class CadastroChamadoComponent implements OnInit {
 
-  teste: any = [
-    { id: "1"},
-    { id: "2"}
-  ]
+  ocorrecias: any = [{}]
 
   @Input()
   formChamado: FormGroup;
@@ -35,20 +32,27 @@ export class CadastroChamadoComponent implements OnInit {
   }
 
   addOcorrencia() {
-    this.formChamado.value.ocorrencia.push(
+    this.ocorrecias.push(
       {
-        id: 10,
+        id: 42,
         lab: this.formOcorrencia.value.lab,
         data: this.formOcorrencia.value.data,
         descricao: this.formOcorrencia.value.descricao
       }
     )
-    console.log(this.formChamado.value.ocorrencia);
-    // this.formOcorrencia.reset();
+    // this.formChamado.value.ocorrencia.push(
+    //   {
+    //     id: 10,
+    //     lab: this.formOcorrencia.value.lab,
+    //     data: this.formOcorrencia.value.data,
+    //     descricao: this.formOcorrencia.value.descricao
+    //   }
+    // )
+    // console.log(this.formChamado.value.ocorrencia);
+    console.log(this.ocorrecias);
+    this.formOcorrencia.reset();
     console.log("Ocorrecia add");
   }
-
-  agoraVai = [{}];
 
   constructor(
     private formBuilder: FormBuilder //Variavel formulario
@@ -56,7 +60,7 @@ export class CadastroChamadoComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-//this.formChamado.value.ocorrencia = [{id:'',lab:'101',data:'10/12/2015',descricao:'teste'}]
-   
+    //this.formChamado.value.ocorrencia = [{id:'',lab:'101',data:'10/12/2015',descricao:'teste'}]
+
   }
 }

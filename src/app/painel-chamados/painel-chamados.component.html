@@ -2,27 +2,19 @@
   <div class="row">
 
     <div class="col-md-4">
-      <button type="button" class="btn btn-success" data-togle="modal" data-target="cadastroChamado" style="width: 18rem; height: 13rem;">
+      <!-- TRIGER DO MODAL DE CADASTRO -->
+      <button type="button" class="btn btn-outline-success btnAddChamado" data-toggle="modal" data-target="#cadastroChamado">
         <i class="fas fa-plus-square"></i>
       </button>
     </div>
 
-    <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
 
     <div class="col-md-4">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">Data Chamado</h5>
+          <p class="card-text">Descricao Chamado: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sed aliquid neque ipsam dolore sit obcaecati mollitia repellat dicta eaque accusantium optio harum nulla eius, quidem nisi laudantium, perspiciatis voluptatem.</p>
+          <a href="#" class="btn btn-primary btnFull">Editar</a>
         </div>
       </div>
     </div>
@@ -31,13 +23,12 @@
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="cadastroChamado" tabindex="-1" role="dialog" aria-labelledby="cadastroChamado"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Modal CADASTRO DE CHAMADO-->
+<div class="modal fade" id="cadastroChamado" tabindex="-1" role="dialog" aria-labelledby="cadastroChamado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="cadastroChamado">Modal title</h5>
+        <h5 class="modal-title" id="cadastroChamado">Cadastrar Chamado</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -45,12 +36,12 @@
       <div class="modal-body">
 
         <!-- CADASTRO DE CHAMADOS -->
-        <!-- <app-cadastro-chamado></app-cadastro-chamado> -->
+        <app-cadastro-chamado></app-cadastro-chamado>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancela</button>
+        <button type="button" class="btn btn-primary">Enviar Chamado</button>
       </div>
     </div>
   </div>

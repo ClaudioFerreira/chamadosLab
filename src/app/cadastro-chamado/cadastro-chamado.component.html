@@ -72,17 +72,8 @@
         </div> -->
 
         <ul class="list-group">
-          
-            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
-              Descrição
-              <span class="badge">
-                <button class="btn btn-outline-danger btnFull">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </span>
-            </li>
-          
-            <li *ngFor="let item of formChamado.ocorrencia"
+                    
+            <!-- <li *ngFor="let item of formChamado.ocorrencia"
                 class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" >
                <span>{{item.value.descricao}}</span> 
                <span>{{item}}</span>      
@@ -91,16 +82,16 @@
                   <i class="fas fa-trash"></i>
                 </button>
               </span>
-            </li>
+            </li> -->
 
-            <!-- <li *ngFor="let item of teste" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
-                {{item.id}}
+            <li *ngFor="let item of ocorrecias" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">
+                {{ item.descricao }}
               <span class="badge">
                 <button class="btn btn-outline-danger btnFull">
                   <i class="fas fa-trash"></i>
                 </button>
               </span>
-            </li> -->
+            </li>
 
         </ul>
 
