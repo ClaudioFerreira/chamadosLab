@@ -12,7 +12,6 @@ export class CadastroChamadoComponent implements OnInit {
   ocorrecias: any = [{
     id: null,
     lab: null,
-    data: null,
     descricao: null,
   }]
 
