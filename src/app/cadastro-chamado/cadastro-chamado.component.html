@@ -7,11 +7,17 @@
 
           <div class="form-row">
             <div class="col">
-              <input type="text" class="form-control btnFull" placeholder="Nome" required />
+              <input type="text" class="form-control btnFull" placeholder="Nome" formControlName="nome" required />
             </div>
 
             <div class="col">
-              <input type="email" class="form-control btnFull" placeholder="E-mail" required />
+              <input type="email" class="form-control btnFull" placeholder="E-mail" formControlName="email" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col form-group">
+              <input type="text" class="form-control theme-blue" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" placeholder="Data" fromControlName="data" required >
             </div>
           </div>
 
@@ -26,8 +32,6 @@
               <option>Lab 003</option>
             </select>
           </div>
-
-
 
           <div class="input-group form-group">
             <div class="input-group-prepend">

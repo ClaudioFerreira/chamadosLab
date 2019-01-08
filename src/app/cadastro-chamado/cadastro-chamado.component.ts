@@ -25,13 +25,13 @@ export class CadastroChamadoComponent implements OnInit {
       id: [""],
       nome: [""],
       email: [""],
+      data: [""],
       ocorrencia: [[]],
     });
 
     this.formOcorrencia = this.formBuilder.group({
       id: [""],
       lab: [""],
-      data: [""],
       descricao: [""],
     });
   }
@@ -41,7 +41,6 @@ export class CadastroChamadoComponent implements OnInit {
       {
         id: 42,
         lab: this.formOcorrencia.value.lab,
-        data: this.formOcorrencia.value.data,
         descricao: this.formOcorrencia.value.descricao
       }
     )
@@ -65,6 +64,7 @@ export class CadastroChamadoComponent implements OnInit {
         id: null,
         nome: this.formChamado.value.nome,
         email: this.formChamado.value.email,
+        data: this.formChamado.value.data,
         ocorrencia: this.ocorrecias,
       }
     )
