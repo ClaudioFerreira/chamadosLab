@@ -25,7 +25,7 @@ export class CadastroChamadoComponent implements OnInit {
       nome: [""],
       email: [""],
       data: [""],
-      ocorrencia: [[]],
+      ocorrencia: [{}],
     });
 
     this.formOcorrencia = this.formBuilder.group({
@@ -58,16 +58,21 @@ export class CadastroChamadoComponent implements OnInit {
   }
 
   enviarChamado() {
-    this.formChamado.value.push(
-      {
-        id: null,
-        nome: this.formChamado.value.nome,
-        email: this.formChamado.value.email,
-        data: this.formChamado.value.data,
-        ocorrencia: this.ocorrecias,
-      }
-    )
-    console.log(this.formChamado);
+
+    id: this.formChamado.value.id;
+    nome: this.formChamado.value.nome;
+    email: this.formChamado.value.email;
+    data: this.formChamado.value.data;
+
+    this.formChamado.value.ocorrencia.push
+      (
+        {
+          ocorrencia: this.ocorrecias
+        }
+      )
+
+    console.log(this.formChamado.value);
+    // this.formChamado.reset();
     console.log("Chamado enviado");
 
   }
