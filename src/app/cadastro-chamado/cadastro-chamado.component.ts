@@ -64,15 +64,13 @@ export class CadastroChamadoComponent implements OnInit {
     email: this.formChamado.value.email;
     data: this.formChamado.value.data;
 
-    this.formChamado.value.ocorrencia.push
-      (
-        {
-          ocorrencia: this.ocorrecias
-        }
-      )
+    for (let index = 0; index < this.ocorrecias.length; index++) {
+      this.formChamado.value.ocorrencia[index] = this.ocorrecias[index];
+      console.log("ADD no array")
+    }
 
     console.log(this.formChamado.value);
-    // this.formChamado.reset();
+    this.formChamado.reset();
     console.log("Chamado enviado");
 
   }
