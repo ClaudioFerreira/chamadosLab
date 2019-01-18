@@ -9,11 +9,7 @@ import { stringify } from 'querystring';
 })
 export class CadastroChamadoComponent implements OnInit {
 
-  ocorrecias: any = [{
-    id: null,
-    lab: null,
-    descricao: null,
-  }]
+  ocorrecias: any = []
 
   @Input()
   formChamado: FormGroup;
@@ -68,6 +64,8 @@ export class CadastroChamadoComponent implements OnInit {
       this.formChamado.value.ocorrencia[index] = this.ocorrecias[index];
       console.log("ADD no array")
     }
+
+    this.ocorrecias = [];
 
     console.log(this.formChamado.value);
     this.formChamado.reset();
