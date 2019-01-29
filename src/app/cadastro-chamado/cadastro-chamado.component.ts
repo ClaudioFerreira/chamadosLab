@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { stringify } from 'querystring';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal, NgbModalRef, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { DialogAlertComponent } from '../dialog-alert/dialog-alert.component';
 
 @Component({
   selector: 'app-cadastro-chamado',
@@ -15,11 +17,6 @@ export class CadastroChamadoComponent implements OnInit {
   @Input()
   formChamado: FormGroup;
   formOcorrencia: FormGroup;
-
-  constructor(
-    private formBuilder: FormBuilder, //Variavel formulario
-    private mensagem: ToastrService,
-  ) { }
 
   createForm() {
     this.formChamado = this.formBuilder.group({
@@ -65,6 +62,27 @@ export class CadastroChamadoComponent implements OnInit {
 
   dellOcorrencia(oc) {
 
+    //   const modalRef = this.modalService.open(DialogAlertComponent);
+    //   modalRef.componentInstance.titulo = 'Atenção';
+    //   modalRef.componentInstance.corpo = 'Realmente deseja excluir a ocorrencia?';
+    //   modalRef.componentInstance.btnpositivo = 'SIM';
+    //   modalRef.componentInstance.btnnegativo = 'NÃO';
+
+    //   modalRef.result.then((result) => {
+    //     if (result) {
+    //       const index: number = this.ocorrecias.indexOf(oc);
+
+    //       if (index !== -1) {
+    //         this.ocorrecias.splice(index, 1);
+    //       }
+    //       this.mensagem.success('Ocorrencia deletada', 'Sucesso!');
+    //       console.log("ocorrencia deletada")
+    //     }
+    //   }).catch((error) => {
+    //     console.log(error);
+    //   });
+    // }
+
     const index: number = this.ocorrecias.indexOf(oc);
     if (index !== -1) {
       this.ocorrecias.splice(index, 1);
@@ -93,7 +111,14 @@ export class CadastroChamadoComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
     this.createForm();
   }
+  
+  constructor(
+    private formBuilder: FormBuilder, //Variavel formulario
+    private mensagem: ToastrService,
+    private modalService: NgbModal
+  ) { }
 }
