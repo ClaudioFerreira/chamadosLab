@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dialog-alert',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogAlertComponent implements OnInit {
 
-  constructor() { }
+  escolha: boolean 
+  
+  @Input()
+  titulo:any
+  corpo:any
+  btnpositivo:any
+  btnnegativo:any
+
+  constructor(
+    public activeModal: NgbActiveModal,
+  ) { }
 
   ngOnInit() {
+    this.escolha =  false;
   }
+
+  confirma() {
+    this.escolha =  true;
+    this.activeModal.close(this.escolha);
+  }
+
+  cancela() {
+    this.activeModal.close(this.escolha);
+  }
+    
+
 
 }

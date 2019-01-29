@@ -17,7 +17,7 @@ import { DialogAlertComponent } from './dialog-alert/dialog-alert.component';
     AppComponent,
     CadastroChamadoComponent,
     PainelChamadosComponent,
-    DialogAlertComponent
+    DialogAlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +30,6 @@ import { DialogAlertComponent } from './dialog-alert/dialog-alert.component';
     ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

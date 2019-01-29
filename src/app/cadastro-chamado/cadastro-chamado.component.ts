@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { stringify } from 'querystring';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastro-chamado',
@@ -14,6 +15,11 @@ export class CadastroChamadoComponent implements OnInit {
   @Input()
   formChamado: FormGroup;
   formOcorrencia: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder, //Variavel formulario
+    private mensagem: ToastrService,
+  ) { }
 
   createForm() {
     this.formChamado = this.formBuilder.group({
@@ -32,24 +38,38 @@ export class CadastroChamadoComponent implements OnInit {
   }
 
   addOcorrencia() {
-    this.ocorrecias.push(
-      {
-        id: 42,
-        lab: this.formOcorrencia.value.lab,
-        descricao: this.formOcorrencia.value.descricao
+    let { lab, descricao } = this.formOcorrencia.controls
+    if (!this.formOcorrencia.valid) {
+      if (!lab.valid) {
+        this.mensagem.error('Selecione o laboratorio', 'Erro');
       }
-    )
+      if (!descricao.valid) {
+        this.mensagem.error('Informe o problema no campo descrição', 'Erro');
+      }
+    }
+    else {
+      this.ocorrecias.push(
+        {
+          id: 42,
+          lab: this.formOcorrencia.value.lab,
+          descricao: this.formOcorrencia.value.descricao,
+        }
+      )
+      this.mensagem.info('Ocorrencia cadastrada', 'Sucesso!');
+      console.log(this.ocorrecias);
+      this.formOcorrencia.reset();
+      console.log("Ocorrecia add ");
+    }
 
-    console.log(this.ocorrecias);
-    this.formOcorrencia.reset();
-    console.log("Ocorrecia add");
   }
 
   dellOcorrencia(oc) {
+
     const index: number = this.ocorrecias.indexOf(oc);
     if (index !== -1) {
       this.ocorrecias.splice(index, 1);
     }
+    this.mensagem.error('Ocorrencia deletada', 'Sucesso!');
     console.log("ocorrencia deletada")
   }
 
@@ -72,10 +92,6 @@ export class CadastroChamadoComponent implements OnInit {
     console.log("Chamado enviado");
 
   }
-
-  constructor(
-    private formBuilder: FormBuilder //Variavel formulario
-  ) { }
 
   ngOnInit() {
     this.createForm();
