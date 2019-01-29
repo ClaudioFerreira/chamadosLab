@@ -108,6 +108,8 @@ export class CadastroChamadoComponent implements OnInit {
     console.log(this.formChamado.value);
     this.formChamado.reset();
     console.log("Chamado enviado");
+    
+    this.mensagem.success('Chamado enviado!', 'Sucesso');
 
   }
 
@@ -115,7 +117,7 @@ export class CadastroChamadoComponent implements OnInit {
   ngOnInit() {
     this.createForm();
   }
-  
+
   constructor(
     private formBuilder: FormBuilder, //Variavel formulario
     private mensagem: ToastrService,
