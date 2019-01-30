@@ -62,34 +62,34 @@ export class CadastroChamadoComponent implements OnInit {
 
   dellOcorrencia(oc) {
 
-    //   const modalRef = this.modalService.open(DialogAlertComponent);
-    //   modalRef.componentInstance.titulo = 'Atenção';
-    //   modalRef.componentInstance.corpo = 'Realmente deseja excluir a ocorrencia?';
-    //   modalRef.componentInstance.btnpositivo = 'SIM';
-    //   modalRef.componentInstance.btnnegativo = 'NÃO';
+      const modalRef = this.modalService.open(DialogAlertComponent);
+      modalRef.componentInstance.titulo = 'Atenção';
+      modalRef.componentInstance.corpo = 'Realmente deseja excluir a ocorrencia?';
+      modalRef.componentInstance.btnpositivo = 'SIM';
+      modalRef.componentInstance.btnnegativo = 'NÃO';
 
-    //   modalRef.result.then((result) => {
-    //     if (result) {
-    //       const index: number = this.ocorrecias.indexOf(oc);
+      modalRef.result.then((result) => {
+        if (result) {
+          const index: number = this.ocorrecias.indexOf(oc);
 
-    //       if (index !== -1) {
-    //         this.ocorrecias.splice(index, 1);
-    //       }
-    //       this.mensagem.success('Ocorrencia deletada', 'Sucesso!');
-    //       console.log("ocorrencia deletada")
-    //     }
-    //   }).catch((error) => {
-    //     console.log(error);
-    //   });
-    // }
-
-    const index: number = this.ocorrecias.indexOf(oc);
-    if (index !== -1) {
-      this.ocorrecias.splice(index, 1);
+          if (index !== -1) {
+            this.ocorrecias.splice(index, 1);
+          }
+          this.mensagem.success('Ocorrencia deletada', 'Sucesso!');
+          console.log("ocorrencia deletada")
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
     }
-    this.mensagem.error('Ocorrencia deletada', 'Sucesso!');
-    console.log("ocorrencia deletada")
-  }
+
+  //   const index: number = this.ocorrecias.indexOf(oc);
+  //   if (index !== -1) {
+  //     this.ocorrecias.splice(index, 1);
+  //   }
+  //   this.mensagem.error('Ocorrencia deletada', 'Sucesso!');
+  //   console.log("ocorrencia deletada")
+  // }
 
   enviarChamado() {
 
@@ -108,7 +108,7 @@ export class CadastroChamadoComponent implements OnInit {
     console.log(this.formChamado.value);
     this.formChamado.reset();
     console.log("Chamado enviado");
-    
+
     this.mensagem.success('Chamado enviado!', 'Sucesso');
 
   }
