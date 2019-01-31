@@ -39,6 +39,7 @@ export class CadastroChamadoComponent implements OnInit {
     if (!this.formOcorrencia.valid) {
       if (!lab.valid) {
         this.mensagem.error('Selecione o laboratorio', 'Erro');
+        console.log(this.mensagem.error('Selecione o laboratorio', 'Erro'));
       }
       if (!descricao.valid) {
         this.mensagem.error('Informe o problema no campo descrição', 'Erro');
